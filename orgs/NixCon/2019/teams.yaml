@@ -1,0 +1,14 @@
+teams:
+  NixCon 2019:
+    description: Organizers of the 2019 edition of NixCon.
+    maintainers:
+    - zimbatm
+    - adisbladis
+    - flokli
+    - andir
+    members:
+    - megfault
+    - snajpa
+    privacy: closed
+    repos:
+      2019.nixcon.org: write
