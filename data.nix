@@ -23,89 +23,44 @@
   resources = {
     twitter = {
       name = "Twitter account";
-      parts = [
-        {
-          type = "account";
-          website = "twitter.com";
-          name = "nixos_org";
-        }
-      ];
       owner = "marketing";
+      kind = "account";
+      website = "https://twitter.com/nixos_org";
     };
     mastodon = {
       name = "Mastodon account";
-      parts = [
-        {
-          type = "account";
-          website = "chaos.social";
-          name = "nixos_org";
-        }
-      ];
       owner = "marketing";
+      kind = "account";
+      website = "https://mastodon.social/@nixos_org@chaos.social";
     };
     youtube = {
       name = "YouTube account";
-      parts = [
-        {
-          type = "account";
-          website = "youtube.com";
-          name = "NixOS-Foundation";
-        }
-      ];
       owner = "marketing";
+      kind = "account";
+      website = "https://www.youtube.com/@NixOS-Foundation";
     };
     opencollective = {
       name = "OpenCollective account";
-      parts = [
-        {
-          type = "account";
-          website = "opencollective.com";
-          name = "nixos";
-        }
-      ];
       owner = "foundation";
+      kind = "account";
+      website = "https://opencollective.com/nixos";
     };
     foundation = {
       name = "Legal foundation";
-      parts = [
-        {
-          type = "legal";
-          website = "https://www.kvk.nl/";
-          registrationNumber = "63520583";
-        }
-      ];
       owner = "foundation";
+      kind = "legal";
+      website = "https://www.kvk.nl/bestellen/#/63520583";
     };
     github = {
       name = "GitHub organisation";
-      parts = [
-        {
-          type = "account";
-          website = "github.com";
-          name = "NixOS";
-        }
-        {
-          type = "account";
-          website = "github.com";
-          name = "NixCon";
-        }
-      ];
       owner = "github";
+      kind = "account";
+      website = "https://github.com/NixOS";
     };
-    infra = {
-      name = "Infrastructure";
-      parts = [
-        {
-          type = "GitHub";
-          owner = "NixOS";
-          repo = "infra";
-        }
-        {
-          type = "DNS zone";
-          zone = "nixos.org";
-        }
-      ];
+    "nixos.org" = {
+      name = "nixos.org DNS zone";
       owner = "infra";
+      kind = "account";
     };
   };
 

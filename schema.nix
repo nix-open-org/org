@@ -20,11 +20,19 @@ in
       options.name = lib.mkOption {
         type = types.str;
       };
-      options.parts = lib.mkOption {
-        type = types.listOf (types.attrsOf types.str);
-      };
       options.owner = lib.mkOption {
         type = types.str;
+      };
+      options.kind = lib.mkOption {
+        type = types.enum [ "account" "legal" "GitHub" ];
+      };
+      options.website = lib.mkOption {
+        type = types.nullOr types.str;
+        default = null;
+      };
+      options.extraInfo = lib.mkOption {
+        type = types.attrsOf types.str;
+        default = {};
       };
     });
   };
@@ -81,12 +89,7 @@ in
 
         Owner: [${config.teams.${resource.owner}.name}](#${toMarkdownAnchor config.teams.${resource.owner}.name})
 
-        Parts:
-        ${lib.concatMapStrings (part: ''
-          - ${lib.concatStringsSep "\n  " (lib.mapAttrsToList (name: value: 
-              "${name}: ${value}"
-            ) part)}
-        '') resource.parts}
+        ${lib.optionalString (resource.website != null) "Website: ${resource.website}"}
 
       '') config.resources)
     }
