@@ -36,8 +36,11 @@ If you are a company, go talk to them!
 
 If you are a member that needs funding for one of your projects, go talk to them!
 
+
 Homepage: https://github.com/NixOS/foundation
+
 Matrix room: [#foundation:nixos.org](https://matrix.to/#/#foundation:nixos.org)
+
 Members:
 - [eelco](#eelco-dolstra)
 
@@ -48,8 +51,11 @@ Members:
 The infra team is responsible for the Nix and NixOS infrastructure.
 Most notably, they are making sure that our CI (Hydra) and binary cache.
 
+
 Homepage: https://github.com/NixOS/infra
+
 Matrix room: [#infra:nixos.org](https://matrix.to/#/#infra:nixos.org)
+
 Members:
 - [zimbatm](#zimbatm) (leader)
 - [delroth](#pierre-bourdon)
@@ -63,8 +69,11 @@ The marketing team is responsible for reporting what happens in our community to
 
 If you need to get some T-Shirts or swag, talk to them!
 
+
 Homepage: https://github.com/NixOS/marketing
+
 Matrix room: [#marketing:nixos.org](https://matrix.to/#/#marketing:nixos.org)
+
 Members:
 
 
@@ -75,8 +84,11 @@ The moderation team is responsible for the culture and maintaining a standard of
 
 If you need to report any misbehaviour, please talk to them!
 
+
 Homepage: https://github.com/NixOS/moderation
+
 Matrix room: [#moderation:nixos.org](https://matrix.to/#/#moderation:nixos.org)
+
 Members:
 
 
@@ -85,8 +97,11 @@ Members:
 
 The Nix team is responsible for the implementation of the Nix language.
 
+
 Homepage: https://github.com/NixOS/nix
+
 Matrix room: [#nix-dev:nixos.org](https://matrix.to/#/#nix-dev:nixos.org)
+
 Members:
 
 
@@ -98,21 +113,25 @@ Members:
 ### Pierre Bourdon
 
 Email: [delroth@gmail.com](mailto:delroth@gmail.com)
+
 GitHub: [@delroth](https://github.com/delroth)
 
 ### Eelco Dolstra
 
 Email: [edolstra@gmail.com](mailto:edolstra@gmail.com)
+
 GitHub: [@edolstra](https://github.com/edolstra)
 
 ### Martin Weinelt
 
 Email: [hexa@darmstadt.ccc.de](mailto:hexa@darmstadt.ccc.de)
+
 GitHub: [@mweinelt](https://github.com/mweinelt)
 
 ### zimbatm
 
 Email: [zimbatm@zimbatm.com](mailto:zimbatm@zimbatm.com)
+
 GitHub: [@zimbatm](https://github.com/zimbatm)
 
 
