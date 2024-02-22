@@ -19,7 +19,7 @@
           };
         });
       packages = eachSystem (pkgs: {
-        default =
+        updateReadme =
           let
             eval = nixpkgs.lib.evalModules {
               modules = [

@@ -6,8 +6,6 @@ let
     let
       matched = builtins.split "[^0-9a-z]" (lib.toLower str);
     in
-    builtins.trace matched
-
     lib.concatMapStrings (x: if lib.isList x then "-" else x) matched;
 
 in
@@ -101,7 +99,8 @@ in
 
         ### ${person.name}
 
-        Email: ${person.email}
+        Email: [${person.email}](mailto:${person.email})
+        GitHub: [@${person.github}](https://github.com/${person.github})
       '') config.people)
     }
     
