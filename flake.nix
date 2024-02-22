@@ -1,6 +1,8 @@
 {
   description = "A very basic flake";
 
+  inputs.systems.url = "github:nix-systems/default";
+
   outputs = { self, nixpkgs, systems }:
     let
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system:
@@ -8,13 +10,9 @@
     in
     {
       devShells = eachSystem (pkgs:
-        let
-          peribolos = pkgs.callPackage ./peribolos.nix { };
-        in
         {
           default = pkgs.mkShell {
             packages = [
-              peribolos
               pkgs.findutils
               pkgs.gnumake
             ];
