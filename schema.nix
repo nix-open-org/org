@@ -38,7 +38,7 @@ in
   };
 
   options.teams = lib.mkOption {
-    type = types.attrsOf (types.submodule {
+    type = types.attrsOf (types.submodule ({ name, ... }: {
       options.name = lib.mkOption {
         type = types.str;
       };
@@ -57,11 +57,17 @@ in
       options.homepage = lib.mkOption {
         type = types.str;
       };
-    });
+
+      options.resourcesOwned = lib.mkOption {
+        type = types.listOf types.str;
+        readOnly = true;
+        default = lib.attrNames (lib.filterAttrs (resourceId: resource: resource.owner == name) config.resources);
+      };
+    }));
   };
 
   options.people = lib.mkOption {
-    type = types.attrsOf (types.submodule {
+    type = types.attrsOf (types.submodule ({ name, ... }: {
       options.name = lib.mkOption {
         type = types.str;
       };
@@ -71,7 +77,12 @@ in
       options.github = lib.mkOption {
         type = types.str;
       };
-    });
+      options.teams = lib.mkOption {
+        readOnly = true;
+        type = types.listOf types.str;
+        default = lib.attrNames (lib.filterAttrs (teamId: team: lib.elem name team.members) config.teams);
+      };
+    }));
   };
 
   options.readme = lib.mkOption {
@@ -113,19 +124,37 @@ in
           - [${member}](#${toMarkdownAnchor config.people.${member}.name})${lib.optionalString (team.leader == member) " (leader)"}
         '') team.members}
 
+        Resources owned:
+        ${lib.concatMapStrings (resourceId:
+          let
+            resource = config.resources.${resourceId};
+          in ''
+            - [${resource.name}](#${toMarkdownAnchor resource.name})
+          ''
+        ) team.resourcesOwned}
+
       '') config.teams)
     }
 
     ## People
 
     ${
-      lib.concatStrings (lib.mapAttrsToList (name: person: ''
+      lib.concatStrings (lib.mapAttrsToList (personId: person: ''
 
         ### ${person.name}
 
         Email: [${person.email}](mailto:${person.email})
 
         GitHub: [@${person.github}](https://github.com/${person.github})
+
+        Included in teams:
+        ${lib.concatMapStrings (teamId:
+          let
+            team = config.teams.${teamId};
+          in ''
+            - [${team.name}](#${toMarkdownAnchor team.name})${lib.optionalString (team.leader == personId) " (leader)"}
+          ''
+        ) person.teams}
       '') config.people)
     }
     
