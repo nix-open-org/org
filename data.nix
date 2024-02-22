@@ -17,6 +17,7 @@
   };
   teams = {
     "infra team" = {
+      name = "Infra team";
       description = ''
         This is the infra team
 

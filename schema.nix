@@ -23,6 +23,9 @@ in
 
   options.teams = lib.mkOption {
     type = types.attrsOf (types.submodule {
+      options.name = lib.mkOption {
+        type = types.str;
+      };
       options.description = lib.mkOption {
         type = types.str;
       };
@@ -66,6 +69,8 @@ in
       lib.concatStrings (lib.mapAttrsToList (name: resource: ''
         ### ${name}
 
+        Owner: [${resource.owner}](#${toMarkdownAnchor config.teams.${resource.owner}.name})
+
         Parts:
         ${lib.concatMapStrings (part: ''
           - ${lib.concatStringsSep "\n  " (lib.mapAttrsToList (name: value: 
@@ -80,7 +85,7 @@ in
     ${
       lib.concatStrings (lib.mapAttrsToList (name: team: ''
 
-        ### ${name}
+        ### ${team.name}
 
         ${team.description}
         Homepage: ${team.homepage}
