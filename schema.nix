@@ -62,7 +62,7 @@ in
     type = lib.types.path;
   };
 
-  config.readme = pkgs.writeFile "Readme.md" ''
+  config.readme = pkgs.writers.writeText "README.md" ''
     ## Resources
     ${
       lib.concatStrings (lib.mapAttrsToList (name: resource: ''
