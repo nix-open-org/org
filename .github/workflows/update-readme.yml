@@ -1,9 +1,12 @@
 # Run on each main branch commit, create a commit to update the README.md
 
-name: Update Readme
+name: Check and update Readme
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -19,6 +22,10 @@ jobs:
       - name: Update Readme
         run: nix run .#updateReadme
       - uses: EndBug/add-and-commit@v9
+        if: ${{ github.event_name == 'push' }}
         with:
           push: true
+      - name: Output readme
+        if: ${{ github.event_name != 'push' }}
+        run: cat README.md > "$GITHUB_STEP_SUMMARY"
 
