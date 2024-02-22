@@ -6,6 +6,14 @@ An entrypoint to help you navigate the official ecosystem. Who owns what, what r
 
 Anybody can propose changes with PRs, or open issues to have discussions.
 
+The `README.md` file is automatically generated from the [`data.nix`](./data.nix) file,
+so open PRs against that instead.
+
+You can test your changes locally using
+```
+nix run .#checkReadme
+```
+
 The person merging PRs will ensure that the change is implemented, either automatically or manually.
 
 
