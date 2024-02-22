@@ -97,8 +97,11 @@ in
         ### ${team.name}
 
         ${team.description}
+
         Homepage: ${team.homepage}
+
         Matrix room: [${team.matrixRoom}](https://matrix.to/#/${team.matrixRoom})
+
         Members:
         ${lib.concatMapStrings (member: ''
           - [${member}](#${toMarkdownAnchor config.people.${member}.name})${lib.optionalString (team.leader == member) " (leader)"}
@@ -115,6 +118,7 @@ in
         ### ${person.name}
 
         Email: [${person.email}](mailto:${person.email})
+
         GitHub: [@${person.github}](https://github.com/${person.github})
       '') config.people)
     }
