@@ -17,6 +17,9 @@ in
 
   options.resources = lib.mkOption {
     type = types.attrsOf (types.submodule {
+      options.name = lib.mkOption {
+        type = types.str;
+      };
       options.parts = lib.mkOption {
         type = types.listOf (types.attrsOf types.str);
       };
@@ -39,10 +42,9 @@ in
       };
       options.leader = lib.mkOption {
         type = types.nullOr types.str;
-        default = null;
       };
       options.matrixRoom = lib.mkOption {
-        type = types.str;
+        type = types.nullOr types.str;
       };
       options.homepage = lib.mkOption {
         type = types.str;
@@ -74,10 +76,10 @@ in
     ## Resources
 
     ${
-      lib.concatStrings (lib.mapAttrsToList (name: resource: ''
-        ### ${name}
+      lib.concatStrings (lib.mapAttrsToList (id: resource: ''
+        ### ${resource.name}
 
-        Owner: [${resource.owner}](#${toMarkdownAnchor config.teams.${resource.owner}.name})
+        Owner: [${config.teams.${resource.owner}.name}](#${toMarkdownAnchor config.teams.${resource.owner}.name})
 
         Parts:
         ${lib.concatMapStrings (part: ''
@@ -100,7 +102,8 @@ in
 
         Homepage: ${team.homepage}
 
-        Matrix room: [${team.matrixRoom}](https://matrix.to/#/${team.matrixRoom})
+        ${lib.optionalString (team.matrixRoom != null) ''
+          Matrix room: [${team.matrixRoom}](https://matrix.to/#/${team.matrixRoom})''}
 
         Members:
         ${lib.concatMapStrings (member: ''

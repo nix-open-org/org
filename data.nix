@@ -21,7 +21,79 @@
   '';
 
   resources = {
+    twitter = {
+      name = "Twitter account";
+      parts = [
+        {
+          type = "account";
+          website = "twitter.com";
+          name = "nixos_org";
+        }
+      ];
+      owner = "marketing";
+    };
+    mastodon = {
+      name = "Mastodon account";
+      parts = [
+        {
+          type = "account";
+          website = "chaos.social";
+          name = "nixos_org";
+        }
+      ];
+      owner = "marketing";
+    };
+    youtube = {
+      name = "YouTube account";
+      parts = [
+        {
+          type = "account";
+          website = "youtube.com";
+          name = "NixOS-Foundation";
+        }
+      ];
+      owner = "marketing";
+    };
+    opencollective = {
+      name = "OpenCollective account";
+      parts = [
+        {
+          type = "account";
+          website = "opencollective.com";
+          name = "nixos";
+        }
+      ];
+      owner = "foundation";
+    };
+    foundation = {
+      name = "Legal foundation";
+      parts = [
+        {
+          type = "legal";
+          website = "https://www.kvk.nl/";
+          registrationNumber = "63520583";
+        }
+      ];
+      owner = "foundation";
+    };
+    github = {
+      name = "GitHub organisation";
+      parts = [
+        {
+          type = "account";
+          website = "github.com";
+          name = "NixOS";
+        }
+        {
+          type = "account";
+          website = "github.com";
+          name = "NixCon";
+        }
+      ];
+      owner = "github";
+    };
     infra = {
+      name = "Infrastructure";
       parts = [
         {
           type = "GitHub";
@@ -38,6 +110,20 @@
   };
 
   teams = {
+    github = {
+      name = "GitHub organisation owners";
+      description = ''
+        This team is responsible for the GitHub organisation account.
+      '';
+      homepage = "https://github.com/NixOS";
+      matrixRoom = null;
+      leader = "zimbatm";
+      members = [
+        "zimbatm"
+        "edolstra"
+        # ...
+      ];
+    };
     infra = {
       #level = "resource";
       name = "Infra team";
@@ -67,8 +153,9 @@
       '';
       homepage = "https://github.com/NixOS/foundation";
       matrixRoom = "#foundation:nixos.org";
+      leader = null;
       members = [
-        "eelco"
+        "edolstra"
       ];
     };
 
@@ -114,7 +201,7 @@
   };
 
   people = {
-    eelco = {
+    edolstra = {
       name = "Eelco Dolstra";
       github = "edolstra";
       email = "edolstra@gmail.com";
