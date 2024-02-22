@@ -1,6 +1,8 @@
 ## Resources
 ### infra
 
+Owner: [infra team](#infra-team)
+
 Parts:
 - owner: NixOS
   repo: infra
@@ -13,7 +15,7 @@ Parts:
 
 ## Org-level teams
 
-### infra team
+### Infra team
 
 This is the infra team
 
