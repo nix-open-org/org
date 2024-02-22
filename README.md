@@ -1,4 +1,16 @@
+# NixOS organization
+
+An entrypoint to help you navigate the official ecosystem. Who owns what, what resources exist, ...
+
+## How to make changes
+
+Anybody can propose changes with PRs, or open issues to have discussions.
+
+The person merging PRs will ensure that the change is implemented, either automatically or manually.
+
+
 ## Resources
+
 ### infra
 
 Owner: [infra](#infra-team)
@@ -13,27 +25,94 @@ Parts:
 
 
 
-## Org-level teams
+## Teams
 
-### Infra team
 
-This is the infra team
+### NixOS Foundation board
 
-bla bla bla
+The foundation is responsible for the legal and funding aspect of our project.
+
+If you are a company, go talk to them!
+
+If you are a member that needs funding for one of your projects, go talk to them!
 
 Homepage: https://github.com/NixOS/foundation
 Matrix room: [#foundation:nixos.org](https://matrix.to/#/#foundation:nixos.org)
 Members:
-- [eelco](#eelco-dolstra) (leader)
+- [eelco](#eelco-dolstra)
+
+
+
+### Infra team
+
+The infra team is responsible for the Nix and NixOS infrastructure.
+Most notably, they are making sure that our CI (Hydra) and binary cache.
+
+Homepage: https://github.com/NixOS/infra
+Matrix room: [#infra:nixos.org](https://matrix.to/#/#infra:nixos.org)
+Members:
+- [zimbatm](#zimbatm) (leader)
+- [delroth](#pierre-bourdon)
+- [hexa](#martin-weinelt)
+
+
+
+### Marketing team
+
+The marketing team is responsible for reporting what happens in our community to the outside world.
+
+If you need to get some T-Shirts or swag, talk to them!
+
+Homepage: https://github.com/NixOS/marketing
+Matrix room: [#marketing:nixos.org](https://matrix.to/#/#marketing:nixos.org)
+Members:
+
+
+
+### Moderation team
+
+The moderation team is responsible for the culture and maintaining a standard of behaviour in our community.
+
+If you need to report any misbehaviour, please talk to them!
+
+Homepage: https://github.com/NixOS/moderation
+Matrix room: [#moderation:nixos.org](https://matrix.to/#/#moderation:nixos.org)
+Members:
+
+
+
+### Nix team
+
+The Nix team is responsible for the implementation of the Nix language.
+
+Homepage: https://github.com/NixOS/nix
+Matrix room: [#nix-dev:nixos.org](https://matrix.to/#/#nix-dev:nixos.org)
+Members:
 
 
 
 
 ## People
 
+
+### Pierre Bourdon
+
+Email: [delroth@gmail.com](mailto:delroth@gmail.com)
+GitHub: [@delroth](https://github.com/delroth)
+
 ### Eelco Dolstra
 
-Email: [...](mailto:...)
+Email: [edolstra@gmail.com](mailto:edolstra@gmail.com)
 GitHub: [@edolstra](https://github.com/edolstra)
+
+### Martin Weinelt
+
+Email: [hexa@darmstadt.ccc.de](mailto:hexa@darmstadt.ccc.de)
+GitHub: [@mweinelt](https://github.com/mweinelt)
+
+### zimbatm
+
+Email: [zimbatm@zimbatm.com](mailto:zimbatm@zimbatm.com)
+GitHub: [@zimbatm](https://github.com/zimbatm)
 
 
