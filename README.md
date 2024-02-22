@@ -1,7 +1,7 @@
 ## Resources
 ### infra
 
-Owner: [infra team](#infra-team)
+Owner: [infra](#infra-team)
 
 Parts:
 - owner: NixOS
