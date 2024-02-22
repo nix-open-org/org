@@ -1,0 +1,22 @@
+# Run on each main branch commit, create a commit to update the README.md
+
+name: Update Readme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    name: Update Readme
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v25
+      - name: Update Readme
+        run: nix run .#updateReadme
+      - uses: EndBug/add-and-commit@v9
+        with:
+          push: true
+
