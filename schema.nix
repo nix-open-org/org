@@ -10,6 +10,11 @@ let
 
 in
 {
+
+  options.header = lib.mkOption {
+    type = types.str;
+  };
+
   options.resources = lib.mkOption {
     type = types.attrsOf (types.submodule {
       options.parts = lib.mkOption {
@@ -64,7 +69,10 @@ in
   };
 
   config.readme = pkgs.writers.writeText "README.md" ''
+    ${config.header}
+
     ## Resources
+
     ${
       lib.concatStrings (lib.mapAttrsToList (name: resource: ''
         ### ${name}
@@ -81,7 +89,8 @@ in
       '') config.resources)
     }
 
-    ## Org-level teams
+    ## Teams
+
     ${
       lib.concatStrings (lib.mapAttrsToList (name: team: ''
 
@@ -99,6 +108,7 @@ in
     }
 
     ## People
+
     ${
       lib.concatStrings (lib.mapAttrsToList (name: person: ''
 
