@@ -23,76 +23,43 @@ The person merging PRs will ensure that the change is implemented, either automa
 
 Owner: [NixOS Foundation board](#nixos-foundation-board)
 
-Parts:
-- registrationNumber: 63520583
-  type: legal
-  website: https://www.kvk.nl/
-
+Website: https://www.kvk.nl/bestellen/#/63520583
 
 ### GitHub organisation
 
 Owner: [GitHub organisation owners](#github-organisation-owners)
 
-Parts:
-- name: NixOS
-  type: account
-  website: github.com
-- name: NixCon
-  type: account
-  website: github.com
-
-
-### Infrastructure
-
-Owner: [Infra team](#infra-team)
-
-Parts:
-- owner: NixOS
-  repo: infra
-  type: GitHub
-- type: DNS zone
-  zone: nixos.org
-
+Website: https://github.com/NixOS
 
 ### Mastodon account
 
 Owner: [Marketing team](#marketing-team)
 
-Parts:
-- name: nixos_org
-  type: account
-  website: chaos.social
+Website: https://mastodon.social/@nixos_org@chaos.social
+
+### nixos.org DNS zone
+
+Owner: [Infra team](#infra-team)
+
 
 
 ### OpenCollective account
 
 Owner: [NixOS Foundation board](#nixos-foundation-board)
 
-Parts:
-- name: nixos
-  type: account
-  website: opencollective.com
-
+Website: https://opencollective.com/nixos
 
 ### Twitter account
 
 Owner: [Marketing team](#marketing-team)
 
-Parts:
-- name: nixos_org
-  type: account
-  website: twitter.com
-
+Website: https://twitter.com/nixos_org
 
 ### YouTube account
 
 Owner: [Marketing team](#marketing-team)
 
-Parts:
-- name: NixOS-Foundation
-  type: account
-  website: youtube.com
-
+Website: https://www.youtube.com/@NixOS-Foundation
 
 
 
@@ -116,6 +83,11 @@ Members:
 - [edolstra](#eelco-dolstra)
 
 
+Resources owned:
+- [Legal foundation](#legal-foundation)
+- [OpenCollective account](#opencollective-account)
+
+
 
 ### GitHub organisation owners
 
@@ -129,6 +101,10 @@ Homepage: https://github.com/NixOS
 Members:
 - [zimbatm](#zimbatm) (leader)
 - [edolstra](#eelco-dolstra)
+
+
+Resources owned:
+- [GitHub organisation](#github-organisation)
 
 
 
@@ -148,6 +124,10 @@ Members:
 - [hexa](#martin-weinelt)
 
 
+Resources owned:
+- [nixos.org DNS zone](#nixos-org-dns-zone)
+
+
 
 ### Marketing team
 
@@ -161,6 +141,12 @@ Homepage: https://github.com/NixOS/marketing
 Matrix room: [#marketing:nixos.org](https://matrix.to/#/#marketing:nixos.org)
 
 Members:
+
+
+Resources owned:
+- [Mastodon account](#mastodon-account)
+- [Twitter account](#twitter-account)
+- [YouTube account](#youtube-account)
 
 
 
@@ -178,6 +164,9 @@ Matrix room: [#moderation:nixos.org](https://matrix.to/#/#moderation:nixos.org)
 Members:
 
 
+Resources owned:
+
+
 
 ### Nix team
 
@@ -191,6 +180,9 @@ Matrix room: [#nix-dev:nixos.org](https://matrix.to/#/#nix-dev:nixos.org)
 Members:
 
 
+Resources owned:
+
+
 
 
 ## People
@@ -202,11 +194,20 @@ Email: [delroth@gmail.com](mailto:delroth@gmail.com)
 
 GitHub: [@delroth](https://github.com/delroth)
 
+Included in teams:
+- [Infra team](#infra-team)
+
+
 ### Eelco Dolstra
 
 Email: [edolstra@gmail.com](mailto:edolstra@gmail.com)
 
 GitHub: [@edolstra](https://github.com/edolstra)
+
+Included in teams:
+- [NixOS Foundation board](#nixos-foundation-board)
+- [GitHub organisation owners](#github-organisation-owners)
+
 
 ### Martin Weinelt
 
@@ -214,10 +215,19 @@ Email: [hexa@darmstadt.ccc.de](mailto:hexa@darmstadt.ccc.de)
 
 GitHub: [@mweinelt](https://github.com/mweinelt)
 
+Included in teams:
+- [Infra team](#infra-team)
+
+
 ### zimbatm
 
 Email: [zimbatm@zimbatm.com](mailto:zimbatm@zimbatm.com)
 
 GitHub: [@zimbatm](https://github.com/zimbatm)
+
+Included in teams:
+- [GitHub organisation owners](#github-organisation-owners) (leader)
+- [Infra team](#infra-team) (leader)
+
 
 
