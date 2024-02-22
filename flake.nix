@@ -20,5 +20,24 @@
             ];
           };
         });
+      packages = eachSystem (pkgs: {
+        default =
+          let
+            eval = nixpkgs.lib.evalModules {
+              modules = [
+                ./schema.nix
+                ./data.nix
+              ];
+              specialArgs.pkgs = pkgs;
+            };
+          in
+          pkgs.writeShellApplication {
+            name = "update-readme";
+            text = ''
+              gitRoot=$(git rev-parse --show-toplevel)
+              cp ${eval.config.readme} "$gitRoot/README.md"
+            '';
+          };
+      });
     };
 }
