@@ -12,11 +12,11 @@
           zone = "nixos.org";
         }
       ];
-      owner = "infra team";
+      owner = "infra";
     };
   };
   teams = {
-    "infra team" = {
+    infra = {
       name = "Infra team";
       description = ''
         This is the infra team
