@@ -19,9 +19,32 @@ The person merging PRs will ensure that the change is implemented, either automa
 
 ## Resources
 
-### infra
+### Legal foundation
 
-Owner: [infra](#infra-team)
+Owner: [NixOS Foundation board](#nixos-foundation-board)
+
+Parts:
+- registrationNumber: 63520583
+  type: legal
+  website: https://www.kvk.nl/
+
+
+### GitHub organisation
+
+Owner: [GitHub organisation owners](#github-organisation-owners)
+
+Parts:
+- name: NixOS
+  type: account
+  website: github.com
+- name: NixCon
+  type: account
+  website: github.com
+
+
+### Infrastructure
+
+Owner: [Infra team](#infra-team)
 
 Parts:
 - owner: NixOS
@@ -29,6 +52,46 @@ Parts:
   type: GitHub
 - type: DNS zone
   zone: nixos.org
+
+
+### Mastodon account
+
+Owner: [Marketing team](#marketing-team)
+
+Parts:
+- name: nixos_org
+  type: account
+  website: chaos.social
+
+
+### OpenCollective account
+
+Owner: [NixOS Foundation board](#nixos-foundation-board)
+
+Parts:
+- name: nixos
+  type: account
+  website: opencollective.com
+
+
+### Twitter account
+
+Owner: [Marketing team](#marketing-team)
+
+Parts:
+- name: nixos_org
+  type: account
+  website: twitter.com
+
+
+### YouTube account
+
+Owner: [Marketing team](#marketing-team)
+
+Parts:
+- name: NixOS-Foundation
+  type: account
+  website: youtube.com
 
 
 
@@ -50,7 +113,22 @@ Homepage: https://github.com/NixOS/foundation
 Matrix room: [#foundation:nixos.org](https://matrix.to/#/#foundation:nixos.org)
 
 Members:
-- [eelco](#eelco-dolstra)
+- [edolstra](#eelco-dolstra)
+
+
+
+### GitHub organisation owners
+
+This team is responsible for the GitHub organisation account.
+
+
+Homepage: https://github.com/NixOS
+
+
+
+Members:
+- [zimbatm](#zimbatm) (leader)
+- [edolstra](#eelco-dolstra)
 
 
 
