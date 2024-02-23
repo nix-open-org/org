@@ -109,9 +109,7 @@
       homepage = "https://github.com/NixOS/foundation";
       matrixRoom = "#foundation:nixos.org";
       leader = null;
-      members = [
-        "edolstra"
-      ];
+      members = [ "edolstra" ];
     };
 
     moderation = {
@@ -124,8 +122,7 @@
       '';
       homepage = "https://github.com/NixOS/moderation";
       matrixRoom = "#moderation:nixos.org";
-      members = [
-      ];
+      members = [ ];
     };
 
     marketing = {
@@ -138,8 +135,7 @@
       '';
       homepage = "https://github.com/NixOS/marketing";
       matrixRoom = "#marketing:nixos.org";
-      members = [
-      ];
+      members = [ ];
     };
 
     nix = {
@@ -150,8 +146,7 @@
       '';
       homepage = "https://github.com/NixOS/nix";
       matrixRoom = "#nix-dev:nixos.org";
-      members = [
-      ];
+      members = [ ];
     };
   };
 
