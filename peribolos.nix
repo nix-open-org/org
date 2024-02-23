@@ -1,6 +1,7 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
 }:
 
 buildGoModule rec {
@@ -27,4 +28,3 @@ buildGoModule rec {
     mainProgram = "peribolos";
   };
 }
-
