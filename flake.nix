@@ -3,8 +3,14 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.systems.url = "github:nix-systems/default";
-  inputs.treefmt-nix.url = "github:numtide/treefmt-nix";
-  inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.treefmt-nix = {
+    url = "github:numtide/treefmt-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+  inputs.opentofu-registry = {
+    url = "github:opentofu/registry";
+    flake = false;
+  };
 
   outputs =
     {
@@ -12,7 +18,8 @@
       nixpkgs,
       systems,
       treefmt-nix,
-    }:
+      ...
+    }@inputs:
     let
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
     in
@@ -22,7 +29,10 @@
           default = pkgs.mkShell {
             packages = [
               pkgs.findutils
+              pkgs.gh
               pkgs.gnumake
+              pkgs.jq
+              (pkgs.callPackage ./tofu { inherit (inputs) opentofu-registry; })
             ];
           };
         }
