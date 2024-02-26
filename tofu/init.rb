@@ -3,33 +3,39 @@
 
 require "json"
 require "pp"
+require "shellwords"
 
 TF = "tofu"
 ORG = "NixOS"
 
 # Just wrap `gh`, it's easier than to depend on Octokit
-def gh(*command)
-  # HACK: assume there are less than 500 items
-  # HACK: assume that the command doesn't require shell escaping
-  IO.popen("gh --limit=500 #{command.map(&:to_s).join(" ")}") do |io|
-    JSON.load(io)
+def gh(*args)
+  cmd = ["gh"] + args.map(&:to_s)
+  $stderr.puts "# #{cmd.shelljoin}"
+  IO.popen(cmd) do |io|
+    JSON.load(io, nil, create_additions: false, symbolize_names: true)
   end
 end
 
-
-def tf(*command)
-  system(TF, *command.map(&:to_s))
+def name_to_tf(name)
+  name.sub(/^[^a-zA-Z]/, "_").gsub(/[^\w-]/, "_").downcase
 end
 
-def tf!(*command)
-  if !tf(*command)
-    throw "terraform command #{command.join(" ")} failed"
+def tf(*args)
+  cmd = [TF] + args.map(&:to_s)
+  $stderr.puts "# #{cmd.shelljoin}"
+  system(*cmd)
+end
+
+def tf!(*args)
+  if !tf(*args)
+    throw "terraform command failed"
   end
 end
 
 ### Import Organization settings
 
-org_id = gh(:api, "/orgs/#{ORG}", "--jq", ".id").strip
+org_id = gh(:api, "/orgs/#{ORG}", "--jq=.id")
 
 File.open("import_org.tf", "w") do |f|
   f.puts(<<~EOM)
@@ -42,13 +48,12 @@ end
 
 ### Import REPOS ###
 
-repos = gh(:repo, :list, ORG, "--json=name")
+repos = gh(:repo, :list, ORG, "--json=name", "--visibility=public")
 
 File.open("import_repos.tf", "w") do |f|
   repos.each do |repo|
-    name = repo["name"]
-
-    id_name = name.gsub(".", "_dot_").gsub(/\d/, "_")
+    repo => {name: }
+    id_name = name_to_tf(name)
 
     f.puts(<<~EOM)
       import {
@@ -65,9 +70,35 @@ File.open("import_repos.tf", "w") do |f|
   end
 end
 
-### TODO: import teams
+### Import teams
 
+teams = gh(:api, "/orgs/#{ORG}/teams?per_page=100", "--paginate")
+File.open("import_teams.tf", "w") do |f|
+  teams.each do |team|
+    name = team[:name]
+    id = team[:id]
+    id_name = name_to_tf(name)
+
+    has_members = gh(:api, "/orgs/#{ORG}/team/#{id}/members?per_page=1").any?
+
+    f.puts(<<~EOM)
+      import {
+        id = "#{id}"
+        to = github_team.#{id_name}
+      }
+    EOM
+
+    f.puts(<<~EOM) if has_members
+      import {
+        id = "#{id}"
+        to = github_team_members.#{id_name}
+      }
+    EOM
+  end
+end
 
 ### Import the resources in the terraform state and generate the terraform resources
 
-tf!(:plan, "-generate-config-out=repos.tf")
+File.delete("generated.tf")
+
+tf!(:plan, "-generate-config-out=generated.tf")

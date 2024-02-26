@@ -32,6 +32,7 @@
               pkgs.gh
               pkgs.gnumake
               pkgs.jq
+              pkgs.hcl2json
               (pkgs.callPackage ./tofu { inherit (inputs) opentofu-registry; })
             ];
           };
