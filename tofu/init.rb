@@ -48,11 +48,10 @@ end
 
 ### Import REPOS ###
 
-repos = gh(:repo, :list, ORG, "--json=name", "--visibility=public")
 
 File.open("import_repos.tf", "w") do |f|
-  repos.each do |repo|
-    repo => {name: }
+  gh(:api, "/orgs/#{ORG}/repos?per_page=100&type=public&sort=full_name", "--paginate").each do |repo|
+    name = repo[:name]
     id_name = name_to_tf(name)
 
     f.puts(<<~EOM)
@@ -72,17 +71,16 @@ end
 
 ### Import teams
 
-teams = gh(:api, "/orgs/#{ORG}/teams?per_page=100", "--paginate")
 File.open("import_teams.tf", "w") do |f|
-  teams.each do |team|
+  gh(:api, "/orgs/#{ORG}/teams?per_page=100", "--paginate").each do |team|
     name = team[:name]
     id = team[:id]
     id_name = name_to_tf(name)
 
-    has_members = gh(:api, "/orgs/#{ORG}/team/#{id}/members?per_page=1").any?
-    if not has_members then
-      throw "NO MEMBERS, delete this team: #{name}"
-    end
+    # has_members = gh(:api, "/orgs/#{ORG}/team/#{id}/members?per_page=1").any?
+    # if not has_members then
+    #   throw "NO MEMBERS, delete this team: #{name}"
+    # end
 
     f.puts(<<~EOM)
       import {
