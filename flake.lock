@@ -16,9 +16,26 @@
         "type": "github"
       }
     },
+    "opentofu-registry": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708777211,
+        "narHash": "sha256-o7B4N9ccXeMcZl42NP+ddC05+h86sdH4v0yOW2xaD54=",
+        "owner": "opentofu",
+        "repo": "registry",
+        "rev": "5e26ecf04a5c44ddc618883b60eb1ffdaa4389a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "opentofu",
+        "repo": "registry",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
+        "opentofu-registry": "opentofu-registry",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       }
