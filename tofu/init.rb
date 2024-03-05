@@ -80,15 +80,16 @@ File.open("import_teams.tf", "w") do |f|
     id_name = name_to_tf(name)
 
     has_members = gh(:api, "/orgs/#{ORG}/team/#{id}/members?per_page=1").any?
+    if not has_members then
+      throw "NO MEMBERS, delete this team: #{name}"
+    end
 
     f.puts(<<~EOM)
       import {
         id = "#{id}"
         to = github_team.#{id_name}
       }
-    EOM
-
-    f.puts(<<~EOM) if has_members
+    
       import {
         id = "#{id}"
         to = github_team_members.#{id_name}
@@ -99,6 +100,6 @@ end
 
 ### Import the resources in the terraform state and generate the terraform resources
 
-File.delete("generated.tf")
+File.delete("generated.tf") if File.exists?("generated.tf")
 
 tf!(:plan, "-generate-config-out=generated.tf")
